@@ -9,34 +9,36 @@
 <body>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Crear una Cuenta</h1>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
+	<form action="#" id="registerForm">
+	<h1>Crear una Cuenta</h1>
+	<input type="text" id="registerName" placeholder="Nombre" />
+	<input type="email" id="registerEmail" placeholder="Correo" />
+	<input type="password" id="registerPassword" placeholder="Contrasena" />
+	<button type="submit">Registrarme</button>
+	</form>
+
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
+	<form action="#" id="loginForm">
+	<h1>Inicia Sesion</h1>
+	<input type="email" id="loginEmail" placeholder="Email" />
+	<input type="password" id="loginPassword" placeholder="Password" />
+	<a href="#">Olvidaste tu Contrasena?</a>
+	<button type="submit">Iniciar</button>
+	</form>
+
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<h1>Hola de Nuevo!</h1>
+				<p>Porvafor inicia sesion</p>
+				<button class="ghost" id="signIn">Iniciar Sesion</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<h1>Bienvenido!</h1>
+				<p>Si aun no posees una cuenta con nosotros, creala para mantenerte al dia!</p>
+				<button class="ghost" id="signUp">Registrarme</button>
 			</div>
 		</div>
 	</div>

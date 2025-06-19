@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookStore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+  <header>
+    <div class="logo">BookStore</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar libros, autores, géneros...">
+    </div>
+    <div>
+      <a href="#" style="color:white">Codigo Postal</a> |
+      <a href="#" style="color:white">Mi cuenta</a> |
+      <a href="#" style="color:white">🛒 <span style="color:#FFD700">0</span></a>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="#">Categorías</a>
+    <a href="#">Ofertas</a>
+    <a href="#">Novedades</a>
+    <a href="#">Best Sellers</a>
+    <a href="#">E-books</a>
+    <a href="#">Autores</a>
+  </nav>
+
+  <section class="cta-section">
+    <h1>Descubre tu próxima lectura</h1>
+    <p>Miles de libros, autores y géneros esperándote</p>
+    <button>EXPLORAR CATÁLOGO</button>
+  </section>
+
+  <section class="categorias">
+    <h2>Categorías populares</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>♞ Ficción</h3>
+        <p>+2,500 libros</p>
+      </div>
+      <div class="card">
+        <h3>♥ Romance</h3>
+        <p>+1,800 libros</p>
+      </div>
+      <div class="card">
+        <h3>🔍 Misterio</h3>
+        <p>+1,200 libros</p>
+      </div>
+      <div class="card">
+        <h3>👤 Biografías</h3>
+        <p>+900 libros</p>
+      </div>
+      <div class="card">
+        <h3>⚗ Ciencia</h3>
+        <p>+1,500 libros</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="destacados">
+    <h2>Libros destacados</h2>
+    <div class="cards" id="destacadosContainer">
+      <!-- Aquí se insertarán dinámicamente los libros -->
+    </div>
+    <div id="errorMensaje" class="error"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LibroLibre. Diseñado con 💛 para los amantes de la lectura. | <a href="#">Términos</a> | <a href="#">Privacidad</a></p>
+  </footer>
+
+  <script>
+    async function cargarLibrosDestacados() {
+      const container = document.getElementById("destacadosContainer");
+      const errorDiv = document.getElementById("errorMensaje");
+      try {
+        const response = await fetch("https://localhost:7290/api/libros/destacados");
+        if (!response.ok) throw new Error("No se pudo obtener la lista de libros");
+
+        const libros = await response.json();
+
+        if (!Array.isArray(libros)) throw new Error("Respuesta inválida del servidor");
+
+        libros.forEach(libro => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <h3>${libro.nombre}</h3>
+            <p>${libro.genero}</p>
+            <p style="font-size: 12px; color: #555">${libro.formato}</p>
+          `;
+          container.appendChild(card);
+        });
+      } catch (error) {
+        console.error("Error al cargar libros destacados:", error);
+        errorDiv.textContent = "No se pudo cargar la sección de libros destacados. Verifique su conexión o intente más tarde.";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", cargarLibrosDestacados);
+  </script>
+</body>
+</html>
