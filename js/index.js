@@ -36,18 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
     alert(result.message);
   });
 
-  // LOGIN
-  document.getElementById("loginForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+// LOGIN
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
 
-    const data = {
-      email,
-      password
-    };
+  const data = { email, password };
 
+  try {
     const res = await fetch("https://localhost:7290/api/account/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -57,11 +55,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const result = await res.json();
 
     if (res.ok) {
+      const mensajeDiv = document.getElementById("mensajeBienvenida");
+      mensajeDiv.textContent = `¡Bienvenido/a, ${result.nombre}!`;
+      mensajeDiv.style.display = "block";
 
-      window.location.href = "../views/home.html";
-
+      setTimeout(() => {
+        window.location.href = "../views/home.html";
+      }, 2000);
     } else {
       alert(result.message);
     }
-  });
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    alert("Hubo un problema al intentar iniciar sesión.");
+  }
+});
+
 });
