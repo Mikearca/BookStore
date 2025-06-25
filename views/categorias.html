@@ -21,51 +21,26 @@
   </header>
 
   <nav class="nav-bar">
-    <a href="#" class="active">Inicio</a>
-    <a href="/views/categorias.html">Catalogo</a>
+    <a href="/views/home.html">Inicio</a>
+    <a href="#" class="active">Catalogo</a>
     <a href="/views/nosotros.html">Nosotros</a>
     <a href="/views/contacto.html">Contacto</a>
     <a href="/views/curiosidades.html">Curiosidades</a>
   </nav>
 
-  <section class="cta-section">
-    <h1>Descubre tu próxima lectura</h1>
-    <p>Miles de libros, autores y géneros esperándote</p>
-    <a href="/views/categorias.html"><button>EXPLORAR CATÁLOGO</button></a>
-  </section>
-
-  <section class="categorias">
-    <h2>Categorías populares</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>♞ Ficción</h3>
-        <p>+2,500 libros</p>
+  <main>
+    <section class="cta-section">
+      <h1>CATALOGO</h1>
+      <p>Miles de libros, autores y géneros esperándote</p>
+    </section>
+  
+  
+    <section class="destacados">
+      <div class="cards" id="destacadosContainer">
       </div>
-      <div class="card">
-        <h3>♥ Romance</h3>
-        <p>+1,800 libros</p>
-      </div>
-      <div class="card">
-        <h3>🔍 Misterio</h3>
-        <p>+1,200 libros</p>
-      </div>
-      <div class="card">
-        <h3>👤 Biografías</h3>
-        <p>+900 libros</p>
-      </div>
-      <div class="card">
-        <h3>⚗ Ciencia</h3>
-        <p>+1,500 libros</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="destacados">
-    <h2>Libros destacados</h2>
-    <div class="cards" id="destacadosContainer">
-    </div>
-    <div id="errorMensaje" class="error"></div>
-  </section>
+      <div id="errorMensaje" class="error"></div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; Alumnos de TI 2025 | <a href="/views/terminos.html">Términos</a> | <a href="/views/pivacidad.html">Privacidad</a></p>
@@ -111,7 +86,5 @@
 
   document.addEventListener("DOMContentLoaded", cargarLibrosDestacados);
 </script>
-
-
 </body>
 </html>

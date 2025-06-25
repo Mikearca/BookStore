@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookStore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+
+  <button id="backButton" onclick="window.location.href='/views/home.html'">Volver</button>
+
+  <main>
+    <section class="form-section">
+      <form id="addBookForm" enctype="multipart/form-data" class="form-container">
+        <h1 class="titulo">Agregar un nuevo libro</h1>
+        <label for="nombre">Nombre del libro:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+          <option value="">Selecciona un género</option>
+          <option value="Ciencia ficción">Ciencia ficción</option>
+          <option value="Fantasía">Fantasía</option>
+          <option value="Romance">Romance</option>
+          <option value="Misterio">Misterio</option>
+          <option value="Terror">Terror</option>
+          <option value="Histórico">Histórico</option>
+        </select>
+
+        <label for="sinopsis">Sinopsis:</label>
+        <textarea id="sinopsis" name="sinopsis" required></textarea>
+
+        <label for="fecha">Fecha de publicación:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="formato">Formato:</label>
+        <select id="formato" name="formato" required>
+          <option value="Tapa blanda">Tapa blanda</option>
+          <option value="Tapa dura">Tapa dura</option>
+          <option value="Rústica">Rústica</option>
+          <option value="Digital">Digital</option>
+        </select>
+
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required>
+
+        <button type="submit">Agregar libro</button>
+      </form>
+      <div id="errorMensaje" class="error"></div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("addBookForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData();
+      formData.append("nombre", document.getElementById("nombre").value);
+      formData.append("genero", document.getElementById("genero").value);
+      formData.append("sinopsis", document.getElementById("sinopsis").value);
+      formData.append("fecha", document.getElementById("fecha").value);
+      formData.append("formato", document.getElementById("formato").value);
+      formData.append("foto", document.getElementById("foto").files[0]);
+
+      try {
+        const response = await fetch("https://localhost:7290/api/libros/agregar", {
+          method: "POST",
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert("Libro agregado correctamente");
+          document.getElementById("addBookForm").reset();
+        } else {
+          throw new Error(result.message || "Hubo un problema al agregar el libro");
+        }
+      } catch (error) {
+        document.getElementById("errorMensaje").textContent = "Error: " + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
