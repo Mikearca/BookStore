@@ -1,0 +1,302 @@
+:root {
+    --primary: #FF416C;
+    --primary-light: #FF6A85;
+    --primary-dark: #CC3357;
+    --text-light: #fff;
+    --text-dark: #2d2d2d;
+    --accent: #FFD700;
+
+    
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: var(--primary);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: var(--text-dark);
+    color: #ccc;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.navegacion img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.contenedor {
+  display: flex;
+}
+
+nav {
+  width: 220px;                  
+  background-color: var(--primary-dark);
+  min-height: 100vh;            
+  color: white;
+  display: flex;          
+  flex-direction: column;      
+  align-items: center;        
+  padding: 20px 0;        
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin-bottom: 20px;
+}
+
+nav li a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav li a img {
+  width: 40px;
+  height: 40px;
+}
+
+nav li a.active {
+  color: var(--accent);
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+nav li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+
+main {
+  padding: 20px;
+  flex-grow: 1;
+  background: #ecf0f1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+thead {
+  background-color: #2c3e50;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  gap: 10px;
+}
+
+/* From Uiverse.io by reshades */ 
+.closebutton {
+  background-color: #ffffff00;
+  color: #fff;
+  width: 8.5em;
+  height: 2.9em;
+  border: #2c3e50 solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.closebutton:hover {
+  background-color: #2c3e50;
+  cursor: pointer;
+}
+
+.closebutton svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.closebutton:hover svg {
+  transform: translateX(5px);
+}
+
+.text {
+  margin: 0 1.5em
+}
+
+/* From Uiverse.io by aaronross1 */ 
+.edit-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+}
+
+.edit-svgIcon {
+  width: 17px;
+  transition-duration: 0.3s;
+}
+
+.edit-svgIcon path {
+  fill: white;
+}
+
+.edit-button:hover {
+  width: 120px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.edit-button:hover .edit-svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.edit-button::before {
+  display: none;
+  content: "Editar";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.edit-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.deletebutton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.deletebutton:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: .3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.deletebutton:hover .svgIcon {
+  width: 50px;
+  transition-duration: .3s;
+  transform: translateY(60%);
+}
+
+.deletebutton::before {
+  position: absolute;
+  top: -20px;
+  content: "Borrar";
+  color: white;
+  transition-duration: .3s;
+  font-size: 2px;
+}
+
+.deletebutton:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: .3s;
+}
